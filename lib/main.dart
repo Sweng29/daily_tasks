@@ -6,39 +6,42 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    List<BottomNavigationBarItem> bottomNavigationBarMenu = [
-      BottomNavigationBarItem(
-        icon: Icon(
-          Icons.menu,
-          color: Colors.black,
-        ),
-        title: new Text('Home'),
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(
-          Icons.more_vert,
-          color: Colors.black,
-        ),
-        title: new Text('Options'),
-      ),
-    ];
     return MaterialApp(
       title: 'Daily Tasks',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          items: bottomNavigationBarMenu,
-          showUnselectedLabels: false,
-          showSelectedLabels: false,
+        bottomNavigationBar: BottomAppBar(
+          child: Container(
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Icon(
+                  Icons.menu,
+                  color: Colors.black,
+                ),
+                Icon(
+                  Icons.more_vert,
+                  color: Colors.black,
+                ),
+              ],
+            ),
+            height: 50.0,
+            padding: EdgeInsets.all(10.0),
+          ),
+          shape: CircularNotchedRectangle(),
+          color: Colors.white,
           elevation: 8.0,
+          notchMargin: 3.0,
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           child: Icon(
             Icons.add,
             color: Colors.green,
+            size: 28,
           ),
           backgroundColor: Colors.white,
           elevation: 8.0,
